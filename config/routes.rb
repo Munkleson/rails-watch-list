@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   # "lists/:id?:movie_id"
 
   resources :bookmarks, only: [:destroy]
+
+  post "/reviews", to: "reviews#create"
 end

@@ -1,0 +1,5 @@
+      <div class="reviews-div">
+        <% bookmark.reviews each do |review| %>
+          <p class="text-center mt-1">"<%= review.content %>"</p>
+        <% end %>
+      </div>

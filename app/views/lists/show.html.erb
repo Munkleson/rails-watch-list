@@ -22,16 +22,24 @@
 
 <div class="w-100 row d-flex justify-content-center">
   <% @bookmarks.each do |bookmark| %>
-    <div class="card col-3 p-3 m-3">
+    <div class="bookmark card col-3 p-3 m-3" data-id="<%= bookmark.id %>">
       <img src="<%= bookmark.movie.poster_url %>" alt="">
       <h5 class="mt-2 text-center"><%= bookmark.movie.title %></h5>
       <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
       <p><strong>Rating:</strong> <%= bookmark.movie.rating %></p>
       <p><Strong>Comment:</Strong> <%= bookmark.comment %></p>
       <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you really sure you want to delete me?" }, class: "btn btn-danger" %>
+      <button class="review-button btn btn-primary mt-2">Leave a review</button>
+      <div class="add-review-div d-flex justify-content-center d-none mt-2">
+        <form action="/reviews" method="POST" class="d-flex flex-column align-items-center justify-content-center">
+          <input type="text" name="content">
+          <input type="submit" class="btn btn-success mt-2" value="Submit review">
+        </form>
+      </div>
     </div>
   <% end %>
 </div>
 
 
 <%= javascript_include_tag "show" %>
+<%= javascript_include_tag "reviews" %>
