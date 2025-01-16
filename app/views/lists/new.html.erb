@@ -1,3 +1,7 @@
-<%= render "new" %>
+<div class="new-list-background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://t3.ftcdn.net/jpg/10/25/57/76/360_F_1025577629_EPnzUsnnBYENn35cOWUomyTjqRzFbNKh.jpg')">
+</div>
 
-<%= link_to "Back", lists_path %>
+<div class="d-flex justify-content-center align-items-center flex-column mt-4">
+  <%= render "new" %>
+  <%= link_to "Back", lists_path, class: "btn btn-primary mt-2" %>
+</div>
