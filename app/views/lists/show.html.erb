@@ -31,11 +31,22 @@
       <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you really sure you want to delete me?" }, class: "btn btn-danger" %>
       <button class="review-button btn btn-primary mt-2">Leave a review</button>
       <div class="add-review-div d-flex justify-content-center d-none mt-2">
-        <form action="/reviews" method="POST" class="d-flex flex-column align-items-center justify-content-center">
+        <form action="<%= @list.id %>/reviews" method="POST" class="d-flex flex-column align-items-center justify-content-center">
           <input type="text" name="content">
+          <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
           <input type="submit" class="btn btn-success mt-2" value="Submit review">
         </form>
       </div>
+      <% if bookmark.reviews %>
+      <button class="show-reviews-button mt-2 btn btn-success">Show reviews</button>
+        <div class="reviews-div mt-2 d-none">
+          <% bookmark.reviews.each do |review| %>
+            <p class="text-center mt-1">"<%= review.content %>"</p>
+          <% end %>
+        </div>
+      <% end %>
+
+
     </div>
   <% end %>
 </div>

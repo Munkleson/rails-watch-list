@@ -1,4 +1,4 @@
-      <div class="reviews-div">
+      <div class="reviews-div mt-2">
         <% bookmark.reviews each do |review| %>
           <p class="text-center mt-1">"<%= review.content %>"</p>
         <% end %>

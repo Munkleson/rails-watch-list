@@ -18,5 +18,5 @@ Rails.application.routes.draw do
 
   resources :bookmarks, only: [:destroy]
 
-  post "/reviews", to: "reviews#create"
+  post "lists/:id/reviews", to: "reviews#create"
 end
