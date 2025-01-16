@@ -2,7 +2,7 @@
   <%= link_to "Back", lists_path, class: "back-button btn btn-primary" %>
   <button class="add-new-bookmark-button btn btn-success">Add a bookmark</button>
 </div>
-
+<%= link_to "Delete list", list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you really sure you want to delete me?" }, class: "list-delete-button btn btn-danger" %>
 
 
 <% if @list.photo.attached? %>
